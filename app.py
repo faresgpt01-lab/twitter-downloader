@@ -119,7 +119,7 @@ def download():
             'outtmpl': os.path.join(DOWNLOAD_FOLDER, f'{file_id}.%(ext)s'),
             'quiet': True,
             'noplaylist': True,
-            'format': format_id
+            'format': 'best[ext=mp4]/best'
         }
         
         if is_extract:
