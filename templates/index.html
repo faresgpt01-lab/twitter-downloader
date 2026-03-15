@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمّل فيديوهات تويتر - XDown</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fa-brands fa-x-twitter"></i>
+            <span>XDown</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">كيفية الاستخدام؟</a>
+            <div class="dropdown">
+                <a href="#">المزيد <i class="fa-solid fa-caret-down"></i></a>
+            </div>
+        </div>
+        <div class="nav-tools">
+            <div class="dropdown">
+                <button class="icon-btn tooltip-btn" title="تغيير اللغة" id="lang-btn">
+                    <i class="fa-solid fa-globe"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" class="lang-option" data-lang="ar">العربية</a>
+                    <a href="#" class="lang-option" data-lang="en">English</a>
+                    <a href="#" class="lang-option" data-lang="fr">Français</a>
+                </div>
+            </div>
+            <button class="icon-btn tooltip-btn" title="تغيير المظهر" id="theme-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="hero-section">
+            <h1 class="main-title">محمّل فيديوهات تويتر</h1>
+            <p class="subtitle">مجاني جودة عالية</p>
+
+            <form id="download-form" class="download-container">
+                <div class="input-wrapper">
+                    <input type="text" id="url-input" placeholder="ألصق رابط فيديو تويتر الخاص بك..." required autocomplete="off">
+                    <button type="button" id="paste-btn" class="paste-btn">
+                        لصق <i class="fa-solid fa-paste"></i>
+                    </button>
+                </div>
+                <button type="submit" id="fetch-btn" class="fetch-btn">
+                    <span>تحميل</span>
+                    <i class="fa-solid fa-arrow-down-long"></i>
+                </button>
+            </form>
+
+            <div class="disclaimer">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>لا يمكن تنزيل المحتوى المحمي بحقوق الطبع والنشر باستخدام هذه الأداة.</span>
+            </div>
+            
+            <div class="maintenance-notice">
+                <span>النظام يعمل بكفاءة عالية لتحسين الأداء والأمان.</span>
+            </div>
+        </div>
+
+        <div id="loading-spinner" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">جاري جلب معلومات الفيديو...</p>
+        </div>
+        
+        <div id="error-message" class="hidden alert alert-danger"></div>
+
+        <div id="result-section" class="hidden result-box">
+            <div class="video-preview">
+                <img id="thumb-img" src="" alt="Thumbnail">
+                <h3 id="video-title">العنوان</h3>
+            </div>
+            <div class="formats-container">
+                <div class="format-list" id="video-formats">
+                    <h4><i class="fa-solid fa-video"></i> صيغ الفيديو</h4>
+                    <table class="formats-table">
+                        <thead>
+                            <tr>
+                                <th>الجودة</th>
+                                <th>الحجم</th>
+                                <th>تحميل</th>
+                            </tr>
+                        </thead>
+                        <tbody id="video-formats-body"></tbody>
+                    </table>
+                </div>
+                
+                <div class="format-list" id="audio-formats">
+                    <h4><i class="fa-solid fa-music"></i> صيغ الصوت</h4>
+                    <table class="formats-table">
+                        <thead>
+                            <tr>
+                                <th>الصيغة</th>
+                                <th>الحجم</th>
+                                <th>تحميل</th>
+                            </tr>
+                        </thead>
+                        <tbody id="audio-formats-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-banner">
+            هو محمل فيديو تويتر يعمل على الويب ولا ينتمي إلى أي برنامج أو منتجات مدفوعة XDown - مجاني.
+        </div>
+
+        <div class="content-grid">
+            <div class="description-side">
+                <h2 class="section-title"><i class="fa-brands fa-x-twitter"></i> أفضل أداة لتنزيل تويتر</h2>
+                <div class="desc-content">
+                    <p>بتنسيقات MP4 و MP3 مجانية. XDown أداة توفر أحد أفضل برامج تنزيل مقاطع فيديو تويتر.</p>
+                    <p>وسهلة الاستخدام تتيح لك حفظ مقاطع الفيديو عالية الدقة. العملية سريعة وبسيطة، سواء كنت ترغب في تنزيل فيديو عالي الدقة أو مقطع صوتي فقط.</p>
+                    <p>ما عليك سوى إدخال رابط المنشور على تويتر، واختيار الجودة المطلوبة وتنزيله مباشرة إلى جهازك.</p>
+                </div>
+            </div>
+            <div class="faq-side">
+                <h2 class="section-title"><i class="fa-regular fa-circle-question"></i> الأسئلة الشائعة</h2>
+                <div class="accordion" id="faq-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            1. أين يتم حفظ التحميلات؟
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>عادة ما يتم حفظ الملفات في مجلد "التنزيلات" (Downloads) الافتراضي على جهازك أو هاتفك المحمول.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            2. كيفية تحميل فيديوهات تويتر بصيغة MP3؟
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>ببساطة الصق الرابط، وبعد جلب المعلومات، اختر تبويب "صيغ الصوت" واضغط على زر التحميل بجانب جودة MP3.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            3. كم من الوقت يستغرق تحميل الفيديوهات؟
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>يعتمد ذلك على حجم الفيديو وسرعة اتصالك بالإنترنت، ولكننا نوفر أقصى سرعة ممكنة على خوادمنا.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            4. هل من الآمن تحميل الفيديوهات باستخدام الأداة؟
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>نعم، 100٪ آمن. لا نطلب تسجيل الدخول ولا نحتفظ بنسخ من الفيديوهات المحملة بعد تسليمها لك.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
