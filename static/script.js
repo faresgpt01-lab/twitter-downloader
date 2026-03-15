@@ -49,9 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholder: "ألصق رابط فيديو تويتر الخاص بك...",
             pasteBtn: "لصق <i class='fa-solid fa-paste'></i>",
             fetchBtn: "<span>تحميل</span><i class='fa-solid fa-arrow-down-long'></i>",
-            disclaimer: "لا يمكن تنزيل المحتوى المحمي بحقوق الطبع والنشر باستخدام هذه الأداة.",
             maintenance: "النظام يعمل بكفاءة عالية لتحسين الأداء والأمان.",
-            infoBanner: "مجاني XDown هو محمل فيديو تويتر يعمل على الويب ولا ينتمي إلى أي برنامج أو منتجات مدفوعة - .",
             bestToolTitle: "<i class='fa-brands fa-x-twitter'></i> أفضل أداة لتنزيل تويتر",
             bestToolP1: "توفر أداة XDown أحد أفضل برامج تنزيل مقاطع فيديو تويتر بتنسيقات MP4 و MP3 مجانية.",
             bestToolP2: "وسهلة الاستخدام تتيح لك حفظ مقاطع الفيديو عالية الدقة. العملية سريعة وبسيطة، سواء كنت ترغب في تنزيل فيديو عالي الدقة أو مقطع صوتي فقط.",
@@ -75,9 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholder: "Paste your Twitter video link here...",
             pasteBtn: "Paste <i class='fa-solid fa-paste'></i>",
             fetchBtn: "<span>Download</span><i class='fa-solid fa-arrow-down-long'></i>",
-            disclaimer: "Copyright-protected content cannot be downloaded using this tool.",
             maintenance: "System is operating efficiently for improved performance and security.",
-            infoBanner: "XDown is a free web-based Twitter video downloader and is not affiliated with any paid software or products.",
             bestToolTitle: "<i class='fa-brands fa-x-twitter'></i> Best Twitter Downloader Tool",
             bestToolP1: "XDown provides one of the best Twitter video downloading tools in free MP4 and MP3 formats.",
             bestToolP2: "It is easy to use and allows you to save high-definition videos. The process is fast and simple, whether you want an HD video or just audio.",
@@ -101,9 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholder: "Collez votre lien vidéo Twitter ici...",
             pasteBtn: "Coller <i class='fa-solid fa-paste'></i>",
             fetchBtn: "<span>Télécharger</span><i class='fa-solid fa-arrow-down-long'></i>",
-            disclaimer: "Le contenu protégé par le droit d'auteur ne peut pas être téléchargé avec cet outil.",
             maintenance: "Le système fonctionne efficacement avec une performance et une sécurité améliorées.",
-            infoBanner: "XDown est un téléchargeur vidéo Twitter Web gratuit et n'est affilié à aucun logiciel ou produit payant.",
             bestToolTitle: "<i class='fa-brands fa-x-twitter'></i> Meilleur Outil de Téléchargement",
             bestToolP1: "XDown offre l'un des meilleurs outils de téléchargement vidéo Twitter en formats MP4 et MP3 gratuits.",
             bestToolP2: "Facile à utiliser, il vous permet d'enregistrer des vidéos haute définition. Que vous vouliez une vidéo HD ou de l'audio seul, c'est rapide.",
@@ -138,11 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('url-input').placeholder = t.placeholder;
         document.getElementById('paste-btn').innerHTML = t.pasteBtn;
         document.getElementById('fetch-btn').innerHTML = t.fetchBtn;
-        document.querySelector('.disclaimer span').textContent = t.disclaimer;
         document.querySelector('.maintenance-notice span').textContent = t.maintenance;
-        
-        // Add remaining translations
-        if (document.querySelector('.info-banner')) document.querySelector('.info-banner').textContent = t.infoBanner;
         
         const descSide = document.querySelector('.description-side');
         if (descSide) {
